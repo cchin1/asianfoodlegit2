@@ -1,0 +1,20 @@
+{
+  "name": "fullstack",
+  "version": "1.0.0",
+  "description": "Complete do-over of full stack web application for UW Coding Bootcamp, Final Group Project, January 2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "postinstall": "cd frontend && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cchin1/asianfoodlegit2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cchin1/asianfoodlegit2/issues"
+  },
+  "homepage": "https://github.com/cchin1/asianfoodlegit2#readme"
+}

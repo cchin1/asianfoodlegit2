@@ -15,6 +15,9 @@ And to deploy, Frontend to Netlify and Backend to Heroku.
 * 'develop': This is where we all merge our changes together before it goes to prod.
 * 'working branches': We will use a naming convention like this 'candice/mything'.  These are our personal branches for doing our assigned feature.
 
+#### GitHub Issues
+Using github issues to track development of the major components of backend and frontend work.
+
 #### The rules:
 * 'master': Must be clean, tests passing, software working correctly.
 * 'develop': Should almost always be clean, tests passing, software working correctly. Avoid breaking develop rules unless it is absolutely necessary to get through some large refactor or something.
