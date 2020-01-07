@@ -13,6 +13,61 @@ padding: 100px;
 width: 100%;
 height: auto;
 }
+
+.login-logo {
+  width: 40%;
+  height: 40%;
+
+}
+
+/* ========== Text ======== */
+.upper {
+  text-transform: uppercase;
+}
+
+
+/* ========== Button ======== */
+.button {
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.navbar-item {
+  text-transform: uppercase;
+}
+
+
+/* ========== Header ======== */
+#page_header{
+	background:url("img/header.jpg") no-repeat;
+	width:100%;
+	position:relative;
+	min-height:280px;
+	background-size:cover;
+	background-position:center center;
+	text-align:right;
+}
+#page_header .page_title{
+	padding:22px 0;
+	position:absolute;
+	bottom:0;
+	width:100%;
+}
+#page_header .page_title h2.title{
+	font-size:36px;
+	vertical-align:top;
+}
+#page_header .page_title h2.title, #page_header .page_title p{ color:#fff;}
+#page_header .page_title p{ margin-bottom:0;}
+
+
+
+
   /*  
    * Rating styles
    */
