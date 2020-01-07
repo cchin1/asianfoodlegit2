@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
-    "postinstall": "cd frontend && npm install"
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "postinstall": "npm run install:frontend && npm run install:backend"
   },
   "repository": {
     "type": "git",
