@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/cchin1/asianfoodlegit2#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "nodeman": "^1.1.2"
   }
 }

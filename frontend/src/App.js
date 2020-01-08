@@ -43,8 +43,8 @@ class App extends Component {
       }
 
 //This function will be called when the render is instantiated but before system is ready for user
+//Configuring CORS
 
-/*
   componentDidMount() {
         fetch(`${constants.hostname}/status`, {
             headers: {
@@ -63,7 +63,6 @@ class App extends Component {
         })
         .catch(console.error)
   }
-*/
 }
 
 export default App;
