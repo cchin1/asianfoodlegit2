@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/cchin1/asianfoodlegit2/issues"
   },
-  "homepage": "https://github.com/cchin1/asianfoodlegit2#readme"
+  "homepage": "https://github.com/cchin1/asianfoodlegit2#readme",
+  "dependencies": {
+    "nodeman": "^1.1.2"
+  }
 }

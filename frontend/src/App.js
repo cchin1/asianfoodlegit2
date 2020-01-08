@@ -3,8 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 // import constants from './constants'
 
+// Rendering and calling the API from React to the Express Server
+
 class App extends Component {
 
+ // Creating a state with a message
   state = { message: "ERROR NO MESSAGE" }
 
   render() {
@@ -38,6 +41,8 @@ class App extends Component {
           </div>
         );
       }
+
+//This function will be called when the render is instantiated but before system is ready for user
 
 /*
   componentDidMount() {
