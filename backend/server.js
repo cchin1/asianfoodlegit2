@@ -33,3 +33,29 @@ app.get("/status", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🐈🐈 Bones prefers port ${PORT} 🐈🐈`);
 });
+
+//Setting up the connection to MySQL
+
+// Require mysql
+var mysql = require("mysql");
+
+// Set up our connection information
+var connection = mysql.createConnection({
+  port: 3306,
+  host: "localhost",
+  user: "root",
+  password: "JS123$$$",
+  database: "asianfoodlegit2"
+});
+
+// Connect to the database
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
+});
+
+// Export connection
+module.exports = connection;
