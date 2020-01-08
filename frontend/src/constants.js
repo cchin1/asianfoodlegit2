@@ -1,7 +1,5 @@
-
-// Need to revise this for Candice's heroku
 const prod = {
-    hostname: "https://fullstack-backend-mjb.herokuapp.com"
+    hostname: "https://asianfoodlegit2.herokuapp.com/"
 };
 
 const dev = {

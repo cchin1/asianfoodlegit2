@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import constants from './constants'
+import constants from './constants'
 
 // Rendering and calling the API from React to the Express Server
 
@@ -25,9 +25,7 @@ class App extends Component {
                 The message is: {this.state.message}
               </p>
                 <p>
-
-                The route is: 
-                
+                The route is: {`${constants.hostname}/status`}
                 </p>
               <a
                 className="App-link"
