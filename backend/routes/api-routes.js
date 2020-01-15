@@ -7,6 +7,8 @@
 // Dependencies
 // =============================================================
 
+// Require the Review model and others
+
 /*
 var connection = require("../config/connection.js");
 

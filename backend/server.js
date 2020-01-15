@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser")
 const cors = require('cors');
 const PORT = process.env.PORT || 8080;
+
+// Sets up the Express App
 const app = express();
 const jsonParser = bodyParser.json()
 
@@ -26,10 +28,24 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Sets up the Express app to handle data parsting
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json"}));
+
+// Static Directory
+app.use(express.static("app/public"));
+
+// Routes
+require("./app/routes/api-routes.js")(app);
+require("./app/routes/html-routes.js")(app);
+
 app.get("/status", (req, res) => {
   res.json({ status: 'ok', message: "Hello Bishop!" })
 });
 
+// Starts the server to begin listening
 app.listen(PORT, () => {
   console.log(`🐈🐈 Bones prefers port ${PORT} 🐈🐈`);
 });
