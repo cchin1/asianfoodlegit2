@@ -15,6 +15,14 @@ var connection = require("../config/connection.js");
 // Routes
 // =============================================================
 module.exports = function(app) {
+
+// Get all restaurant reviews
+// Get a specific review
+// Get all reviews of a specific country or cuisine
+// Get all reviews from a specific reviewer
+// Add a review
+// Delete a review
+
   // Get all chirps
   app.get("/api/all", function(req, res) {
     var dbQuery = "SELECT * FROM chirps";
