@@ -16,7 +16,7 @@ var Review = sequelize.define("Review", {
     },
     author: Sequelize.STRING,
     restaurant: Sequelize.STRING,
-    cuisine: Sequalize.STRING,
+    cuisine: Sequelize.STRING,
     country: Sequelize.STRING,
     text: Sequelize.STRING,
     created_at: Sequelize.DATE
