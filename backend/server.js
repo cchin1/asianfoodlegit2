@@ -1,18 +1,17 @@
 const express = require("express");
-const bodyParser = require("body-parser")
-const cors = require('cors');
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const PORT = process.env.PORT || 8080;
 
 // Sets up the Express App
 const app = express();
-const jsonParser = bodyParser.json()
+const jsonParser = bodyParser.json();
 
-const allowedOrigins = ['*',
-                        '*'];
+const allowedOrigins = ["*", "*"];
 
 // app.use(cors({
 //   origin: function(origin, callback) {
-//     // allow requests with no origin 
+//     // allow requests with no origin
 //     // (like mobile apps or curl requests)
 //     if(!origin) return callback(null, true);
 //     if(allowedOrigins.indexOf(origin) === -1) {
@@ -32,21 +31,20 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json"}));
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static Directory
 app.use(express.static("app/public"));
 
 // Routes
-require("routes/api-routes.js")(app);
-require("routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 app.get("/status", (req, res) => {
-  res.json({ status: 'ok', message: "Hello Bishop!" })
+  res.json({ status: "ok", message: "Hello Bishop!" });
 });
 
 // Starts the server to begin listening
 app.listen(PORT, () => {
   console.log(`🐈🐈 Bones prefers port ${PORT} 🐈🐈`);
 });
-
