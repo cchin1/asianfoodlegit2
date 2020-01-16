@@ -9,6 +9,7 @@ var sequelize = require("../config/connection.js");
 
 // Creates a "Review" model that matches up with DB
 var Review = sequelize.define("Review", {
+
     id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
