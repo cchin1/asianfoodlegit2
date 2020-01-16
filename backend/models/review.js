@@ -15,9 +15,10 @@ var Review = sequelize.define("Review", {
       primaryKey: true
     },
     author: Sequelize.STRING,
+    restaurant: Sequelize.STRING,
     cuisine: Sequalize.STRING,
     country: Sequelize.STRING,
-    body: Sequelize.STRING,
+    text: Sequelize.STRING,
     created_at: Sequelize.DATE
   });
   
