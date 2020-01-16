@@ -8,86 +8,28 @@ import "./style.css";
 import "./index.css";
 import { Button } from "react-bulma-components";
 import logoImage from "./img/logo.png";
+import NavBar from "./components/NavBar.js";
+import Banner from "./components/Banner.js";
 
 // Rendering and calling the API from React to the Express Server
 
 class App extends Component {
-  // Creating a state with a message
-  state = { message: "ERROR NO MESSAGE" };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: {
+        name: "Test User",
+        email: "test@demo.com"
+      }
+    };
+  }
 
   render() {
     return (
       <div className="App">
-        <nav className="navbar is-transparent">
-          <div className="navbar-brand">
-            <a className="navbar-item" href="index.html">
-              <img
-                src={logoImage}
-                alt="Bulma: a modern CSS framework based on Flexbox"
-                width="112"
-                height="28"
-              />
-            </a>
-            <div
-              className="navbar-burger burger"
-              data-target="navbarExampleTransparentExample"
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-
-          <div id="navbarExampleTransparentExample" className="navbar-menu ">
-            <div className="navbar-start">
-              <a className="navbar-item" href="#">
-                Sushi
-              </a>
-
-              <a className="navbar-item" href="#">
-                Dumplings
-              </a>
-
-              <a className="navbar-item" href="#">
-                Noodles
-              </a>
-
-              <a className="navbar-item" href="#">
-                Hot Pot
-              </a>
-            </div>
-          </div>
-
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="field is-grouped">
-                <Button id="loginBTN" className="Button is-danger is-outlined">
-                  Log In
-                </Button>
-
-                <p className="control">
-                  <a href="signup.html" className="Button is-danger">
-                    <span>Sign Up</span>
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </nav>
-
-        <section id="page_header">
-          <div className="page_title">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12">
-                  <h2 className="title upper">Our Legit</h2>
-                  <p>The Most Authentic Asian Places</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        <NavBar currentUser={this.state.user} />
+        <Banner />
         <section id="Card">
           <div className="Columns">
             <div className="Column is-two-fifths">
