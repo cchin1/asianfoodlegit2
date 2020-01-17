@@ -8,7 +8,7 @@ import logoImage from "../img/logo.png";
 
 class NavBar extends Component {
   render() {
-    const currentUser = this.props.currentUser;
+    const { currentUser, onClickLogin } = this.props;
 
     return (
       <nav className="navbar is-transparent">
@@ -54,10 +54,14 @@ class NavBar extends Component {
         <div className="navbar-end">
           <div className="navbar-item">
             {currentUser ? (
-              <div>{currentUser.name}</div>
+              <div>{currentUser.email}</div>
             ) : (
               <div className="field is-grouped">
-                <Button id="loginBTN" className="Button is-danger is-outlined">
+                <Button
+                  id="loginBTN"
+                  className="Button is-danger is-outlined"
+                  onClick={onClickLogin}
+                >
                   Log In
                 </Button>
 

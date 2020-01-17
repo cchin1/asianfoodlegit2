@@ -8,27 +8,27 @@ import "../../index.css";
 
 class Review extends Component {
   render() {
-    const currentReview = this.props;
+    const { currentReview } = this.props;
 
     return (
       <section id="review">
         <section id="Card">
           <div className="Columns">
-            <FoodPic currentPic={currentReview.currentReview.pic} />
+            <FoodPic currentPic={currentReview.pic} />
           </div>
           <div className="Column">
-            <h1 className="title is-3">Name:</h1>
+            <h1 className="title is-3">{currentReview.name}</h1>
             <div className="rating">
               <input name="stars" id="e5" type="radio" />
-              <label for="e5">☆</label>
+              <label htmlFor="e5">☆</label>
               <input name="stars" id="e4" type="radio" />
-              <label for="e4">☆</label>
+              <label htmlFor="e4">☆</label>
               <input name="stars" id="e3" type="radio" />
-              <label for="e3">☆</label>
+              <label htmlFor="e3">☆</label>
               <input name="stars" id="e2" type="radio" />
-              <label for="e2">☆</label>
+              <label htmlFor="e2">☆</label>
               <input name="stars" id="e1" type="radio" />
-              <label for="e1">☆</label>
+              <label htmlFor="e1">☆</label>
             </div>
 
             <div className="review">
