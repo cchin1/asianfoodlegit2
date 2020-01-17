@@ -8,7 +8,7 @@ import logoImage from "../img/logo.png";
 
 class NavBar extends Component {
   render() {
-    let currentUser = this.props.currentUser;
+    const currentUser = this.props.currentUser;
 
     return (
       <nav className="navbar is-transparent">

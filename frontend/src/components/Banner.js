@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import "react-bulma-components/dist/react-bulma-components.min.css";
-import { Button } from "react-bulma-components";
 
 import "../style.css";
 import "../index.css";
-import logoImage from "../img/logo.png";
 
 class Banner extends Component {
   render() {

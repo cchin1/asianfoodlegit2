@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import "react-bulma-components/dist/react-bulma-components.min.css";
-
-import logo from "./logo.svg";
-import "./App.css";
-import constants from "./constants";
-import "./style.css";
-import "./index.css";
 import { Button } from "react-bulma-components";
-import logoImage from "./img/logo.png";
+
+import constants from "./constants";
 import NavBar from "./components/NavBar.js";
 import Banner from "./components/Banner.js";
+import Review from "./components/Review";
+
+import "./App.css";
+import "./style.css";
+import "./index.css";
 
 // Rendering and calling the API from React to the Express Server
 
@@ -21,6 +21,13 @@ class App extends Component {
       user: {
         name: "Test User",
         email: "test@demo.com"
+      },
+      review: {
+        name: "test restaurant",
+        rating: 5,
+        pic: "https://bulma.io/images/placeholders/256x256.png",
+        blurb:
+          "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditatev non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."
       }
     };
   }
@@ -30,54 +37,14 @@ class App extends Component {
       <div className="App">
         <NavBar currentUser={this.state.user} />
         <Banner />
-        <section id="Card">
-          <div className="Columns">
-            <div className="Column is-two-fifths">
-              <figure className="image is-3by2">
-                <img src="https://bulma.io/images/placeholders/256x256.png" />
-              </figure>
-              <br />
-            </div>
-          </div>
-          <div className="Column">
-            <h1 className="title is-3">Name:</h1>
-            <div className="rating">
-              <input name="stars" id="e5" type="radio" />
-              <label for="e5">☆</label>
-              <input name="stars" id="e4" type="radio" />
-              <label for="e4">☆</label>
-              <input name="stars" id="e3" type="radio" />
-              <label for="e3">☆</label>
-              <input name="stars" id="e2" type="radio" />
-              <label for="e2">☆</label>
-              <input name="stars" id="e1" type="radio" />
-              <label for="e1">☆</label>
-            </div>
+        <Review currentReview={this.state.review} />
+        <Button
+          className="Button is-danger is-outlined"
+          onclick="window.location.href = 'login.html';"
+        >
+          Add Your Review
+        </Button>
 
-            <div className="review">
-              <p>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                blanditiis praesentium voluptatum deleniti atque corrupti quos
-                dolores et quas molestias excepturi sint occaecati cupiditate
-                non provident, similique sunt in culpa qui officia deserunt
-                mollitia animi, id est laborum et dolorum fuga. Et harum quidem
-                rerum facilis est et expedita distinctio. Nam libero tempore,
-                cum soluta nobis est eligendi optio cumque nihil impedit quo
-                minus id quod maxime placeat facere possimus, omnis voluptas
-                assumenda est, omnis dolor repellendus.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="review">
-          <Button
-            className="Button is-danger is-outlined"
-            onclick="window.location.href = 'login.html';"
-          >
-            Add Your Review
-          </Button>
-        </section>
         <div className="modal" id="login">
           <div className="modal-background"></div>
           <div className="modal-Card">
@@ -281,32 +248,6 @@ class App extends Component {
             </form>
           </div>
         </section>
-
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            This is Asian Food Legit!
-            <span role="img" aria-label="chinese-takeout">
-              🥡
-            </span>
-            <span role="img" aria-label="chinese-takeout">
-              🥡
-            </span>
-            <span role="img" aria-label="chinese-takeout">
-              🥡
-            </span>
-          </p>
-          <p>The message is: {this.state.message}</p>
-          <p>The route is: {`${constants.hostname}/status`}</p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
       </div>
     );
   }
