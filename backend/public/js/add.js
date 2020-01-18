@@ -1,4 +1,4 @@
-$("#add-btn").on("click", function(event){
+/*$("#add-btn").on("click", function(event){
     event.preventDefault();
 
     var newReview = {
@@ -21,3 +21,5 @@ $("#add-btn").on("click", function(event){
     $("#text").val("");
 
 });
+
+*/

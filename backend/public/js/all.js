@@ -1,4 +1,4 @@
-$.get("/api/all", function(data){
+/*$.get("/api/all", function(data){
     console.log(data);
     for (var i=0; i<data.length; i++) {
         var wellSection = $("<div>");
@@ -6,3 +6,6 @@ $.get("/api/all", function(data){
 })
 
 // This is unfinished
+
+*/
+

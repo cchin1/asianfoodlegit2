@@ -16,11 +16,12 @@ var Review = sequelize.define("Review", {
       primaryKey: true
     },
     author: Sequelize.STRING,
+    pictureurl: Sequelize.STRING,
+    rating: Sequelize.TBDBTDBTDBTB
     restaurant: Sequelize.STRING,
     cuisine: Sequelize.STRING,
     country: Sequelize.STRING,
     text: Sequelize.STRING,
-    created_at: Sequelize.DATE
   });
   
   // Sync with DB
