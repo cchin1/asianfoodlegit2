@@ -5,6 +5,8 @@ Complete do-over of full stack web application for UW Coding Bootcamp, Final Gro
 * Backend (Express)
 * Database (MySQL)
 
+Technologies Used:  HTML, CSS, Javascript, NodeJS, Express, NPM, MySQL, Sequelize, Sequelize CLI, Postman
+
 ## Deployment
 And to deploy, Frontend to Netlify and Backend to Heroku.
 * Netlify  https://xenodochial-wing-89433b.netlify.com

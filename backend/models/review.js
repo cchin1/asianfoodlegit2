@@ -17,11 +17,11 @@ var Review = sequelize.define("Review", {
     },
     author: Sequelize.STRING,
     pictureurl: Sequelize.STRING,
-    rating: Sequelize.STRING,
+    rating: Sequelize.INTEGER,
     restaurant: Sequelize.STRING,
     cuisine: Sequelize.STRING,
     country: Sequelize.STRING,
-    text: Sequelize.STRING,
+    blurb: Sequelize.TEXT,
   });
   
   // Sync with DB
@@ -29,3 +29,8 @@ var Review = sequelize.define("Review", {
   
   // Makes the Model available for other files (will also create a table)
   module.exports = Review;
+
+  Review.upsert({
+    author: 'Candice',
+    restaurant: 'Jade East',
+  });
