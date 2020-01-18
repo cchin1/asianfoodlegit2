@@ -9,12 +9,10 @@ class FoodPic extends Component {
     const Pic = this.props.currentPic;
 
     return (
-      <div className="Column is-two-fifths">
-        <figure className="image is-3by2">
-          <img src={Pic} />
-        </figure>
+      <figure className="image is-3by2">
+        <img src={Pic} />
         <br />
-      </div>
+      </figure>
     );
   }
 }

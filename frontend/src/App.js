@@ -24,16 +24,16 @@ class App extends Component {
         {
           name: "test restaurant",
           rating: 5,
-          pic: "https://bulma.io/images/placeholders/256x256.png",
+          pic: "https://i.giphy.com/media/zm1Hm7xViBfG/giphy.webp",
           blurb:
             "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum"
         },
         {
           name: "test restaurant 2",
-          rating: 5,
-          pic: "https://bulma.io/images/placeholders/256x256.png",
-          blurb:
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum"
+          rating: 4,
+          pic:
+            "https://media0.giphy.com/media/tbMG1SxlOIIF2/giphy.gif?cid=790b7611b152b4df06208b57f64eb192d7d1231e1d3650c5&rid=giphy.gif",
+          blurb: "best restaurant ever"
         }
       ],
       showLogin: false
@@ -49,7 +49,8 @@ class App extends Component {
     // if user is actually a user...
     this.setState({
       user: { email: email },
-      showLogin: false
+      showLogin: false,
+      addReview: false
     });
   };
 
@@ -63,14 +64,14 @@ class App extends Component {
           onClickLogin={this.onClickLogin}
         />
         <Banner />
-
         {this.state.reviews.map(review => (
           <Review currentReview={review} />
         ))}
-
-        <Button className="Button is-danger is-outlined">
-          Add Your Review
-        </Button>
+        <section id="review">
+          <Button className="Button is-danger is-outlined">
+            Add Your Review
+          </Button>
+        </section>
         {this.state.showLogin ? (
           <Login onSubmitLogin={this.onSubmitLogin} />
         ) : null}
