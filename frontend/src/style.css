@@ -1,4 +1,4 @@
-#card {
+#Card {
   width: 90%;
   margin: 30px auto 30px auto;
   padding: 20px;
@@ -9,7 +9,7 @@
   margin: 30px auto 30px auto;
   padding: 0px;
 }
-.modal-card-body {
+.modal-Card-body {
   background-color: #fff;
   /* flex-grow: 10; */
   flex-shrink: 1;
@@ -30,7 +30,7 @@
 }
 
 /* ========== Button ======== */
-.button {
+.Button {
   text-align: center;
   text-decoration: none;
   display: inline-block;

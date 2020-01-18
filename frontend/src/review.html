@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Asian Food Legit </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body>
+
+      
+       
+
+            <section class="modal-card-body">
+        
+              <div class="modal-content">
+                <a href="index.html"> <img class="login-logo" src="img/logo.png"></a>
+              <form action="" class="login column is-6">
+                
+                <div class="field">
+                  <label class="label">Username</label>
+                  <div class="control has-icons-right">
+                    <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required>
+                    <span class="icon is-small is-right">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control has-icons-right">
+                      <input type="password" placeholder="*******" class="input" required>                      <span class="icon is-small is-right">
+                        <i class="fa fa-key"></i>
+                      </span>
+                    </div>
+                  </div>
+
+      
+                  <div class="has-text-centered">
+                    <a class="Button is-vcentered is-primary">Sign Up!</a>
+                  </div><br>
+                  <div class="has-text-centered">
+                    <a href="login.html"> Already have an account? Log in now!</a>
+                  </div>
+                </form>
+        
+            </section>
+      
+
+  </body>
+  <script>
+      document.querySelectorAll('.modal-Button').forEach(function(el) {
+  el.addEventListener('click', function() {
+    var target = document.querySelector(el.getAttribute('data-target'));
+    
+    target.classList.add('is-active');
+    
+    target.querySelector('.modal-close').addEventListener('click',   function() {
+        target.classList.remove('is-active');
+     });
+  });
+});
+  </script>
+</html>
