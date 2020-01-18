@@ -3,11 +3,13 @@
   margin: 30px auto 30px auto;
   padding: 20px;
   background: #f8f8f8;
+  text-align: left;
 }
 #review {
   width: 90%;
   margin: 30px auto 30px auto;
   padding: 0px;
+  display: flex;
 }
 .modal-Card-body {
   background-color: #fff;
@@ -45,7 +47,7 @@
 
 /* ========== Header ======== */
 #page_header {
-  background: url("img/header.jpg") no-repeat;
+  background: url("./img/header.jpg") no-repeat;
   width: 100%;
   position: relative;
   min-height: 280px;
@@ -74,7 +76,12 @@
 /*  
    * Rating styles
    */
+
+#star {
+  width: 35px;
+}
 .rating {
+  display: flex;
   width: 300px;
   font-size: 40px;
   overflow: hidden;
@@ -87,13 +94,13 @@
 .rating a,
 .rating label {
   float: right;
-  color: #aaa;
+  color: orange;
   text-decoration: none;
   -webkit-transition: color 0.4s;
   -moz-transition: color 0.4s;
   -o-transition: color 0.4s;
   transition: color 0.4s;
-}
+} /* }
 .rating label:hover ~ label,
 .rating input:focus ~ label,
 .rating label:hover,
@@ -103,7 +110,7 @@
 .rating a:focus ~ a {
   color: orange;
   cursor: pointer;
-}
+} */
 .rating2 {
   direction: rtl;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "react-bulma-components/dist/react-bulma-components.min.css";
 import { Button } from "react-bulma-components";
 
@@ -7,6 +8,7 @@ import NavBar from "./components/NavBar.js";
 import Banner from "./components/Banner.js";
 import Review from "./components/Review";
 import Login from "./components/Login.js";
+import Add from "./components/Add";
 
 import "./App.css";
 import "./style.css";
@@ -24,19 +26,26 @@ class App extends Component {
         {
           name: "test restaurant",
           rating: 5,
-          pic: "https://bulma.io/images/placeholders/256x256.png",
+          pic: "https://i.giphy.com/media/zm1Hm7xViBfG/giphy.webp",
           blurb:
             "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum"
         },
         {
           name: "test restaurant 2",
-          rating: 5,
-          pic: "https://bulma.io/images/placeholders/256x256.png",
-          blurb:
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum"
+          rating: 4,
+          pic:
+            "https://media0.giphy.com/media/tbMG1SxlOIIF2/giphy.gif?cid=790b7611b152b4df06208b57f64eb192d7d1231e1d3650c5&rid=giphy.gif",
+          blurb: "best restaurant ever"
         }
       ],
-      showLogin: false
+      showLogin: false,
+      showAddReview: false,
+      id: 0,
+      message: null,
+      intervalIsSet: false,
+      idToDelete: null,
+      idToUpdate: null,
+      objectToUpdate: null
     };
   }
 
@@ -53,6 +62,14 @@ class App extends Component {
     });
   };
 
+  onSubmitReview = () => {
+    this.setState({ showAddReview: false });
+  };
+
+  // hideReview = () => {
+  //   this.setState({ showAddReview: false });
+  // };
+
   onLogout = () => {};
 
   render() {
@@ -63,16 +80,22 @@ class App extends Component {
           onClickLogin={this.onClickLogin}
         />
         <Banner />
-
         {this.state.reviews.map(review => (
           <Review currentReview={review} />
         ))}
-
-        <Button className="Button is-danger is-outlined">
-          Add Your Review
-        </Button>
+        <section id="review">
+          <Button
+            onClick={() => this.setState({ showAddReview: true })}
+            className="Button is-danger is-outlined"
+          >
+            Add Your Review
+          </Button>
+        </section>
         {this.state.showLogin ? (
           <Login onSubmitLogin={this.onSubmitLogin} />
+        ) : null}
+        {this.state.showAddReview ? (
+          <Add onSubmitReview={this.onSubmitReview} onClick />
         ) : null}
       </div>
     );
@@ -82,23 +105,38 @@ class App extends Component {
   //Configuring CORS
 
   componentDidMount() {
-    fetch(`${constants.hostname}/status`, {
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => {
-        console.log("before the parse");
-        const jsonParsed = res.json();
-        console.log("after the parse");
-        return jsonParsed;
-      })
-      .then(data => {
-        console.log(data);
-        this.setState({ message: data.message });
-      })
-      .catch(console.error);
+    this.getDataFromDb();
+    if (this.state.intervalIsSet) {
+      let interval = setInterval(this.getDataFromDb, 8080);
+      this.setState({ intervalIsSet: interval });
+    }
   }
+  componentWillUnmount() {
+    if (this.state.intervalIsSet) {
+      clearInterval(this.state.intervalIsSet);
+      this.setState({ intervalIsSet: null });
+    }
+  }
+  getDataFromDb = () => {
+    fetch("http://localhost:3001/api/getData")
+      .then(data => data.json())
+      .then(res => this.setState({ data: res.data }));
+  };
+
+  // our put method that uses our backend api
+  // to create new query into our data base
+  putDataToDB = message => {
+    let currentIds = this.state.data.map(data => data.id);
+    let idToBeAdded = 0;
+    while (currentIds.includes(idToBeAdded)) {
+      ++idToBeAdded;
+    }
+
+    axios.post("express_backend", {
+      id: idToBeAdded,
+      message: message
+    });
+  };
 }
 
 export default App;

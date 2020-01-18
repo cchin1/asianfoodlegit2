@@ -4,17 +4,16 @@ import "react-bulma-components/dist/react-bulma-components.min.css";
 import "../../style.css";
 import "../../index.css";
 
-class Blurb extends Component {
+class newRestaurant extends Component {
   render() {
-    const Blurb = this.props.currentBlurb;
+    const newRestaurant = this.props.currentName;
     return (
-      <div className="review">
-        <div>
-          <div>{Blurb}</div>
-        </div>
+      <div>
+        Restaurant Name:
+        <input placeholder="Restaurant Name"></input>;
       </div>
     );
   }
 }
 
-export default Blurb;
+export default newRestaurant;
