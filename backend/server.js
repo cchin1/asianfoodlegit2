@@ -37,7 +37,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("app/public"));
 
 // Routes
-// require("./routes/api-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 app.get("/status", (req, res) => {
   res.json({ status: "ok", message: "Hello Bishop!" });
