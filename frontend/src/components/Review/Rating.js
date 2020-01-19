@@ -13,7 +13,7 @@ class Rating extends Component {
     const star = (
       <div>
         {/* <input name="stars" id="e5" type="radio" /> */}
-        <img id="star" src={starPic} />
+        <img alt="rating" id="star" src={starPic} />
       </div>
     );
 
