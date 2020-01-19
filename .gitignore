@@ -1,7 +1,10 @@
+# ignore matt's ide (webstorm)
+.idea
+
 *.env
 
-
-
+# The team is using npm, do not check in yarn.lock files.
+yarn.lock
 
 # Created by https://www.gitignore.io/api/node,react,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=node,react,visualstudiocode
