@@ -10,7 +10,7 @@ class FoodPic extends Component {
 
     return (
       <figure className="image is-3by2">
-        <img src={Pic} />
+        <img alt="Food from this place" src={Pic} />
         <br />
       </figure>
     );
