@@ -8,10 +8,14 @@ MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 # "port": 3306,
 # "dialect": "mysql"
 
+docker stop asianfoodlegitdb | true
+docker rm -f asianfoodlegitdb | true
+
 docker run --name asianfoodlegitdb \
            -p 3306:3306 \
            -e MYSQL_ROOT_PASSWORD='JS123$$$' \
            -e MYSQL_DATABASE='asianfoodlegit2' \
+           -d \
            mysql:8
 #            bitflipsoftware/blazetest:v001
 

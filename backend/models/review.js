@@ -1,36 +1,29 @@
-// Dependencies
-// =============================================================
+'use strict';
 
-// This may be confusing but here Sequelize (capital) references the standard library
-var Sequelize = require("sequelize");
+const DataTypes = require('sequelize').DataTypes;
 
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection.js");
+// Get a connected instance of Sequelize.
+const instance = require("../config/connection.js");
 
-// Creates a "Review" model that matches up with DB
-var Review = sequelize.define("Review", {
+// Define the model
+const model = (sequelizeInstance, DataTypes) => {
+  const Review = sequelizeInstance.define('Review', {
+    author: DataTypes.STRING,
+    pictureurl: DataTypes.STRING,
+    rating: DataTypes.INTEGER,
+    restaurant: DataTypes.STRING,
+    cuisine: DataTypes.STRING,
+    country: DataTypes.STRING,
+    blurb: DataTypes.TEXT
+  }, {});
+  Review.associate = function(models) {
+    // associations can be defined here
+  };
 
-    id: {
-      type: Sequelize.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    author: Sequelize.STRING,
-    pictureurl: Sequelize.STRING,
-    rating: Sequelize.INTEGER,
-    restaurant: Sequelize.STRING,
-    cuisine: Sequelize.STRING,
-    country: Sequelize.STRING,
-    blurb: Sequelize.TEXT,
-  });
-  
-  // Sync with DB
+  // In case migrations have not been run, do the DDL to create the table.
   Review.sync();
-  
-  // Makes the Model available for other files (will also create a table)
-  module.exports = Review;
+  return Review;
+};
 
-  Review.upsert({
-    author: 'Candice',
-    restaurant: 'Jade East',
-  });
+// Return the model with a connection to the database.
+module.exports = model(instance, DataTypes);

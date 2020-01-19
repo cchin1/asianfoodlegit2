@@ -6,13 +6,13 @@
 // =============================================================
 
 // Require the Review model
-var Review = require("../models/review.js");
+const Review = require("../models/review.js");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
-  // Get a review by it's primary key ID.
+  // Get a single review by it's primary key ID.
   app.get("/review/:id", function(req, res) {
     if (req.params.id) {
       Review.findOne({
@@ -25,6 +25,7 @@ module.exports = function(app) {
     }
   });
 
+  // Create a single review
   app.post("/review", function(req, res) {
     const input = JSON.parse(req.body);
     Review.create({
@@ -42,25 +43,25 @@ module.exports = function(app) {
       })
   });
 
-// Get all restaurant reviews route
-app.get("/all", function(req, res){
-  Review.findAll({}).then(function(results){
-    res.json(results);
-  });
-});
-
-// Get a specific review route
-app.get("/:review", function(req, res){
-  if (req.params.review) {
-    Review.findAll({
-      where: {
-        restaurant: req.params.review
-      }
-    }).then(function(results){
+  // Get all restaurant reviews
+  app.get("/reviews", function(req, res){
+    Review.findAll({}).then(function(results){
       res.json(results);
     });
-  }
-});
+  });
+
+// Get a specific review route
+// app.get("review/:review", function(req, res){
+//   if (req.params.review) {
+//     Review.findAll({
+//       where: {
+//         restaurant: req.params.review
+//       }
+//     }).then(function(results){
+//       res.json(results);
+//     });
+//   }
+// });
 
 // Get all reviews of a specific country
 app.get("/country/:country", function(req, res){
