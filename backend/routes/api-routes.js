@@ -56,19 +56,6 @@ module.exports = function(app) {
     });
   });
 
-// Get a specific review route
-// app.get("review/:review", function(req, res){
-//   if (req.params.review) {
-//     Review.findAll({
-//       where: {
-//         restaurant: req.params.review
-//       }
-//     }).then(function(results){
-//       res.json(results);
-//     });
-//   }
-// });
-
 // Get all reviews of a specific country
 app.get("/country/:country", function(req, res){
   if (req.params.country) {
