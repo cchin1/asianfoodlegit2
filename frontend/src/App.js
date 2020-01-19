@@ -92,6 +92,7 @@ class App extends Component {
             onClick={() => this.setState({ showAddReview: true })}
             className="Button is-danger is-outlined"
           >
+            // TODO - eventually this is the real text of the button
             {/*Add Your Review*/}
 
             {
@@ -110,10 +111,7 @@ class App extends Component {
     );
   }
 
-  //This function will be called when the render is instantiated but before system is ready for user
-  //Configuring CORS
-
-
+  // This function will be called when the render is instantiated but before system is ready for user
   componentDidMount() {
     this.getDataFromApi();
     if (this.state.intervalIsSet) {
@@ -121,12 +119,14 @@ class App extends Component {
       this.setState({ intervalIsSet: interval });
     }
   }
+
   componentWillUnmount() {
     if (this.state.intervalIsSet) {
       clearInterval(this.state.intervalIsSet);
       this.setState({ intervalIsSet: null });
     }
   }
+
   getDataFromApi = () => {
     fetch(`${CONSTANTS.BACKEND_URL}/status`)
       .then( (data) => {
