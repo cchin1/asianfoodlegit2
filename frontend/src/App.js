@@ -23,29 +23,10 @@ class App extends Component {
 
     this.state = {
       user: null,
-      reviews: [
-        {
-          name: "test restaurant",
-          rating: 5,
-          pic: "https://i.giphy.com/media/zm1Hm7xViBfG/giphy.webp",
-          blurb:
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum"
-        },
-        {
-          name: "test restaurant 2",
-          rating: 4,
-          pic:
-            "https://media0.giphy.com/media/tbMG1SxlOIIF2/giphy.gif?cid=790b7611b152b4df06208b57f64eb192d7d1231e1d3650c5&rid=giphy.gif",
-          blurb: "best restaurant ever"
-        }
-      ],
+      reviews: [],
       showLogin: false,
       showAddReview: false,
       id: 0,
-
-      // this is just a test message from the backend
-      statusMessage: null,
-
       intervalIsSet: false,
       idToDelete: null,
       idToUpdate: null,
@@ -92,13 +73,7 @@ class App extends Component {
             onClick={() => this.setState({ showAddReview: true })}
             className="Button is-danger is-outlined"
           >
-            {/*TODO - eventually this is the real text of the button */}
-            {/*Add Your Review*/}
-
-            {
-              // TODO - change this back to "Add Your Review", currently it proves that the backend is working
-              this.state.statusMessage
-            }
+            Add Your Review
           </Button>
         </section>
         {this.state.showLogin ? (
@@ -131,12 +106,12 @@ class App extends Component {
   }
 
   getDataFromApi = () => {
-    fetch(`${CONSTANTS.BACKEND_URL}/status`)
+    fetch(`${CONSTANTS.BACKEND_URL}/reviews`)
       .then(data => {
         return data.json();
       })
       .then(res => {
-        this.setState({ statusMessage: res.message });
+        this.setState({ reviews: res });
       })
       .catch(err => {
         console.error(err);
