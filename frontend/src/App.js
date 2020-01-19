@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "react-bulma-components/dist/react-bulma-components.min.css";
 import { Button } from "react-bulma-components";
-import { CONSTANTS } from "./constants"
+import { CONSTANTS } from "./constants";
 import NavBar from "./components/NavBar.js";
 import Banner from "./components/Banner.js";
 import Review from "./components/Review";
@@ -92,7 +92,7 @@ class App extends Component {
             onClick={() => this.setState({ showAddReview: true })}
             className="Button is-danger is-outlined"
           >
-            { /*TODO - eventually this is the real text of the button */ }
+            {/*TODO - eventually this is the real text of the button */}
             {/*Add Your Review*/}
 
             {
@@ -118,6 +118,9 @@ class App extends Component {
       let interval = setInterval(this.getDataFromApi, FIVE_SECONDS);
       this.setState({ intervalIsSet: interval });
     }
+    var newScript = document.createElement("script");
+    newScript.src = "https://widget.cloudinary.com/v2.0/global/all.js";
+    document.body.appendChild(newScript);
   }
 
   componentWillUnmount() {
@@ -129,15 +132,15 @@ class App extends Component {
 
   getDataFromApi = () => {
     fetch(`${CONSTANTS.BACKEND_URL}/status`)
-      .then( (data) => {
+      .then(data => {
         return data.json();
       })
-      .then( (res) => {
+      .then(res => {
         this.setState({ statusMessage: res.message });
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err);
-      })
+      });
   };
 
   // our put method that uses our backend api
