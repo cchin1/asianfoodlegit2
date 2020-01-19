@@ -12,7 +12,7 @@
     "install:backend": "cd backend && npm install",
     "install:frontend": "cd frontend && npm install",
     "postinstall": "npm run install:frontend && npm run install:backend",
-    "start": "npm run start:backend",
+    "start": "cd backend && npm run start",
     "test": "echo \"no tests\""
   },
   "repository": {
