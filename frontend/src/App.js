@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "react-bulma-components/dist/react-bulma-components.min.css";
 import { Button } from "react-bulma-components";
-
-import constants from "./constants";
+import { CONSTANTS } from "./constants"
 import NavBar from "./components/NavBar.js";
 import Banner from "./components/Banner.js";
 import Review from "./components/Review";
@@ -13,6 +12,8 @@ import Add from "./components/Add";
 import "./App.css";
 import "./style.css";
 import "./index.css";
+
+const FIVE_SECONDS = 5000;
 
 // Rendering and calling the API from React to the Express Server
 
@@ -41,7 +42,10 @@ class App extends Component {
       showLogin: false,
       showAddReview: false,
       id: 0,
-      message: null,
+
+      // this is just a test message from the backend
+      statusMessage: null,
+
       intervalIsSet: false,
       idToDelete: null,
       idToUpdate: null,
@@ -88,7 +92,13 @@ class App extends Component {
             onClick={() => this.setState({ showAddReview: true })}
             className="Button is-danger is-outlined"
           >
-            Add Your Review
+            { /*TODO - eventually this is the real text of the button */ }
+            {/*Add Your Review*/}
+
+            {
+              // TODO - change this back to "Add Your Review", currently it proves that the backend is working
+              this.state.statusMessage
+            }
           </Button>
         </section>
         {this.state.showLogin ? (
@@ -101,26 +111,33 @@ class App extends Component {
     );
   }
 
-  //This function will be called when the render is instantiated but before system is ready for user
-  //Configuring CORS
-
+  // This function will be called when the render is instantiated but before system is ready for user
   componentDidMount() {
-    this.getDataFromDb();
+    this.getDataFromApi();
     if (this.state.intervalIsSet) {
-      let interval = setInterval(this.getDataFromDb, 8080);
+      let interval = setInterval(this.getDataFromApi, FIVE_SECONDS);
       this.setState({ intervalIsSet: interval });
     }
   }
+
   componentWillUnmount() {
     if (this.state.intervalIsSet) {
       clearInterval(this.state.intervalIsSet);
       this.setState({ intervalIsSet: null });
     }
   }
-  getDataFromDb = () => {
-    fetch("http://localhost:3001/api/getData")
-      .then(data => data.json())
-      .then(res => this.setState({ data: res.data }));
+
+  getDataFromApi = () => {
+    fetch(`${CONSTANTS.BACKEND_URL}/status`)
+      .then( (data) => {
+        return data.json();
+      })
+      .then( (res) => {
+        this.setState({ statusMessage: res.message });
+      })
+      .catch((err) => {
+        console.error(err);
+      })
   };
 
   // our put method that uses our backend api

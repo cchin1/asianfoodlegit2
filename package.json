@@ -6,12 +6,13 @@
   "scripts": {
     "build": "npm run build:backend",
     "build:frontend": "cd frontend && npm run build",
+    "build:frontend:prod": "cd frontend && npm run build:prod",
+    "dev:backend": "cd backend && npm dev",
+    "dev:frontend": "cd frontend && npm start",
     "install:backend": "cd backend && npm install",
     "install:frontend": "cd frontend && npm install",
     "postinstall": "npm run install:frontend && npm run install:backend",
-    "start": "npm run start:backend",
-    "start:backend": "cd backend && npm start",
-    "start:frontend": "cd frontend && npm start",
+    "start": "cd backend && npm run start",
     "test": "echo \"no tests\""
   },
   "repository": {
