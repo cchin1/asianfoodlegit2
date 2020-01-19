@@ -11,7 +11,7 @@ Technologies Used:  HTML, CSS, Javascript, NodeJS, Express, NPM, MySQL, Sequeliz
 And to deploy, Frontend to Netlify and Backend to Heroku.
 * Netlify  https://xenodochial-wing-89433b.netlify.com
 * GitHub  https://github.com/cchin1/asianfoodlegit2
-* Heroku  https://git.heroku.com/asianfoodlegit2.git
+* Heroku  https://asianfoodlegit2.herokuapp.com/
 
 ## Project Requirements
 * Must use ReactJS in some way (even if minimal)
@@ -32,19 +32,28 @@ And to deploy, Frontend to Netlify and Backend to Heroku.
 * 'develop': This is where we all merge our changes together before it goes to prod.
 * 'working branches': We will use a naming convention like this 'candice/mything'.  These are our personal branches for doing our assigned feature.
 
-#### GitHub Issues
-Using github issues to track development of the major components of backend and frontend work.
-
 #### The rules:
 * 'master': Must be clean, tests passing, software working correctly.
 * 'develop': Should almost always be clean, tests passing, software working correctly. Avoid breaking develop rules unless it is absolutely necessary to get through some large refactor or something.
 * 'yourname/yourthing': Do whatever you want.
 * It is not recommended to delete prior/old branches in GitHub, until/unless the total number of branches is truly problematic.
 
+## Build
+
+There are two projects. In the backend folder we have a Node.js Express server application that serves as the API. In the frontend folder we have a React App. At the top level, we have an additional `package.json` which has scripts that reach in to the frontend or backend folders and run `package.json` scripts therein.
+
+## Generated Constants
+
+## Running Asian Food Legit Locally (for Development)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
+#### GitHub Issues
+
+Using github issues to track development of the major components of backend and frontend work.
 
 
 
