@@ -92,7 +92,7 @@ class App extends Component {
             onClick={() => this.setState({ showAddReview: true })}
             className="Button is-danger is-outlined"
           >
-            // TODO - eventually this is the real text of the button
+            { /*TODO - eventually this is the real text of the button */ }
             {/*Add Your Review*/}
 
             {
