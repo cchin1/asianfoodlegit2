@@ -35,8 +35,9 @@ class NewFoodPic extends Component {
           class="cloudinary-button"
           onClick={this.showWidget}
         >
-          Upload files
+          Upload Photos
         </button>
+        <br />
         <br />
       </div>
     );

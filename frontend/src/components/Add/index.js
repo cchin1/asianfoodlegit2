@@ -14,11 +14,11 @@ class Review extends Component {
     const { onSubmitReview } = this.props;
     return (
       <div>
-        <NewFoodPic />
         <NewRestaurant />
         <NewRating />
         <NewBlurb />
         <br />
+        <NewFoodPic />
         <button onClick={onSubmitReview}>Submit Review</button>
       </div>
     );
