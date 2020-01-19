@@ -11,7 +11,7 @@ Technologies Used:  HTML, CSS, Javascript, NodeJS, Express, NPM, MySQL, Sequeliz
 And to deploy, Frontend to Netlify and Backend to Heroku.
 * Netlify  https://xenodochial-wing-89433b.netlify.com
 * GitHub  https://github.com/cchin1/asianfoodlegit2
-* Heroku  https://git.heroku.com/asianfoodlegit2.git
+* Heroku  https://asianfoodlegit2.herokuapp.com/
 
 ## Project Requirements
 * Must use ReactJS in some way (even if minimal)
