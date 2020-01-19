@@ -6,7 +6,7 @@ const ENVIRONMENT = require("./environment");
 var Sequelize = require("sequelize");
 
 // Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
-var sequelize = new Sequelize("asianfoodlegit2", "root", ENVIRONMENT.DB_PASSWORD, {
+var sequelize = new Sequelize(ENVIRONMENT.DB_NAME, ENVIRONMENT.DB_USERNAME, ENVIRONMENT.DB_PASSWORD, {
     host: ENVIRONMENT.DB_HOSTNAME,
     port: ENVIRONMENT.DB_PORT,
     dialect: "mysql",
