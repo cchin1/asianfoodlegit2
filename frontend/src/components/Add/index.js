@@ -14,7 +14,7 @@ class Review extends Component {
     const { onSubmitReview } = this.props;
     return (
       <div>
-        {/* <NewFoodPic /> */}
+        <NewFoodPic />
         <NewRestaurant />
         <NewRating />
         <NewBlurb />
