@@ -17,10 +17,10 @@ class Review extends Component {
       <section id="Card">
         <div className="columns">
           <div className="column is-two-fifths">
-            <FoodPic currentPic={currentReview.pic} />
+            <FoodPic currentPic={currentReview.pictureurl} />
           </div>
           <div className="column">
-            <Restaurant currentName={currentReview.name} />
+            <Restaurant currentName={currentReview.restaurant} />
             <div className="rating">
               <Rating currentRating={currentReview.rating} />
             </div>

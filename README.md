@@ -50,9 +50,10 @@ So we wrote a small Node.js program, `frontent/src/generate-constants.js`, which
 
 ## Running the System Locally (for Development)
 
+  * At the root of the repo, run `npm install`.
   * Install and run MySQL on port 3306. Your root password must be JS123$$$. You must have a database called `asianfoodlegit2`.
-  * Run the API Server: At the root of the repo, run `npm dev:backend` (or cd into `backend` and run `npm run dev`). This will run sequelize migrations first, then start the backend server. If your MySQL database is not running or set-up properly, the backend will not start.
-  * Run the React App: In another terminal, at the root of the repo, run `npm dev:frontend` (or cd into `frontend` and run `npm start`).
+  * Run the API Server: At the root of the repo, run `npm run dev:backend` (or cd into `backend` and run `npm run dev`). This will run sequelize migrations first, then start the backend server. If your MySQL database is not running or set-up properly, the backend will not start.
+  * Run the React App: In another terminal, at the root of the repo, run `npm run dev:frontend` (or cd into `frontend` and run `npm run start`).
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
