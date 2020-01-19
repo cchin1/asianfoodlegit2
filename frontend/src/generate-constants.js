@@ -24,9 +24,11 @@ const VALUES = {
 }
 
 if (ENV_ARG==="prod") {
+    // https://asianfoodlegit2.herokuapp.com/
     VALUES.BACKEND_PROTOCOL = "https";
-    VALUES.BACKEND_HOSTNAME = "herokublah.com";
+    VALUES.BACKEND_HOSTNAME = "asianfoodlegit2.herokuapp";
     VALUES.BACKEND_PORT = "443";
+
 }
 
 const WIDTH = process.stdout.columns || 80;
