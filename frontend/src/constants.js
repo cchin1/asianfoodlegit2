@@ -1,11 +1,6 @@
-const prod = {
-    hostname: "https://asianfoodlegit2.herokuapp.com/"
-};
+import {GENERATED_CONSTANTS} from './generated-constants'
 
-const dev = {
-    hostname: "http://localhost:3000"
-};
-
-const constants = process.env.REACT_APP_NODE_ENV === 'development' ? dev : prod;
-
-export default constants;
+export const CONSTANTS = {
+	BACKEND_URL: `${GENERATED_CONSTANTS.BACKEND_PROTOCOL}://${GENERATED_CONSTANTS.BACKEND_HOSTNAME}:${GENERATED_CONSTANTS.BACKEND_PORT}`,
+	APP_NAME: "Asian Food Legit",
+}

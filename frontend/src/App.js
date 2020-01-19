@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "react-bulma-components/dist/react-bulma-components.min.css";
 import { Button } from "react-bulma-components";
-
-import constants from "./constants";
+import { CONSTANTS } from "./constants"
 import NavBar from "./components/NavBar.js";
 import Banner from "./components/Banner.js";
 import Review from "./components/Review";
@@ -129,7 +128,7 @@ class App extends Component {
     }
   }
   getDataFromApi = () => {
-    fetch("http://localhost:3000/status")
+    fetch(`${CONSTANTS.BACKEND_URL}/status`)
       .then( (data) => {
         return data.json();
       })

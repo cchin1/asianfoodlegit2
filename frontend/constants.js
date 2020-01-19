@@ -1,3 +1,0 @@
-export CONSTANTS = {
-	backendUrl: "localhost"
-}
