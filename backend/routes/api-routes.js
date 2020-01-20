@@ -27,7 +27,9 @@ module.exports = function(app) {
 
   // Create a single review
   app.post("/review", function(req, res) {
-    const input = JSON.parse(req.body);
+    console.log("-- Received new review ----------------------");
+    console.log(req.body);
+    const input = req.body;
     Review.create({
         author: input.author,
         pictureurl: input.pictureurl,
@@ -50,21 +52,8 @@ module.exports = function(app) {
     });
   });
 
-// Get a specific review route
-// app.get("review/:review", function(req, res){
-//   if (req.params.review) {
-//     Review.findAll({
-//       where: {
-//         restaurant: req.params.review
-//       }
-//     }).then(function(results){
-//       res.json(results);
-//     });
-//   }
-// });
-
 // Get all reviews of a specific country
-app.get("/country/:country", function(req, res){
+app.get("/reviews/country/:country", function(req, res){
   if (req.params.country) {
     Review.findAll({
       where: {
@@ -77,36 +66,27 @@ app.get("/country/:country", function(req, res){
 });
 
 // Get all reviews from a specific reviewer
-app.get("/author/:author", function(req, res){
-  if (req.params.author) {
-    Review.findAll({
-      where: {
-        restaurant: req.params.author
-      }
-    }).then(function(results){
-      res.json(results);
-    });
-  }
-});
-
-// Add a review
-app.post("/new", function(req, res){
-  Review.create({
-    author: req.body.author,
-    restaurant: req.body.restaurant,
-    cuisine: req.body.cuisine,
-    country: req.body.country,
-    text: req.body.text
-  });
-});
-
-// Delete a review
-app.post("/delete", function(req, res){
-  Review.destroy({
-    where: {
-      id: req.body.id
+  app.get("/reviews/author/:author", function(req, res){
+    if (req.params.author) {
+      Review.findAll({
+        where: {
+          restaurant: req.params.author
+        }
+      }).then(function(results){
+        res.json(results);
+      });
     }
   });
-});
 
+  // Delete a review
+  app.delete("/review/:id", function(req, res){
+    Review.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(() => {
+      res.status = 204;
+      res.end("{}");
+    })
+  });
 };
