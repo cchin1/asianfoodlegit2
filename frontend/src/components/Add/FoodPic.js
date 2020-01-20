@@ -21,7 +21,7 @@ class NewFoodPic extends Component {
     widget.open();
   };
   render() {
-    let widget = window.cloudinary.createUploadWidget(
+    const widget = window.cloudinary.createUploadWidget(
       {
         cloudname: "ohmydearcheesus",
         uploadPreset: "ml_default"
@@ -33,7 +33,7 @@ class NewFoodPic extends Component {
         <button
           id="upload_widget"
           class="cloudinary-button"
-          onClick={this.showWidget}
+          onClick={widget.open}
         >
           Upload Photos
         </button>
