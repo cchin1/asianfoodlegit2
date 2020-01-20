@@ -9,7 +9,12 @@ class NewBlurb extends Component {
     return (
       <div>
         Write about your experience here:
-        <input placeholder="?How was your experience at this restaurant?"></input>
+        <textarea
+          rows="4"
+          cols="50"
+          placeholder="How was your experience at this restaurant?"
+          style={{ width: "90%", resize: "vertical" }}
+        ></textarea>
         <br />
       </div>
     );

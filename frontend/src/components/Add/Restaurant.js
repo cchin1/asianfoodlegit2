@@ -10,8 +10,8 @@ class NewRestaurant extends Component {
     return (
       <div>
         Restaurant Name:
-        <input placeholder="Restaurant Name"></input>
-        <br />
+        <input placeholder="Restaurant Name" style={{ width: "90%" }}></input>
+        <br /> <br />
       </div>
     );
   }

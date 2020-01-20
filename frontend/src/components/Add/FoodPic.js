@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "react-bulma-components/dist/react-bulma-components.min.css";
+import { Button } from "react-bulma-components";
 
 import "../../style.css";
 import "../../index.css";
@@ -32,13 +33,13 @@ class NewFoodPic extends Component {
     );
     return (
       <div>
-        <button
+        <Button
           id="upload_widget"
-          class="cloudinary-button"
+          className="Button is-danger is-outlined"
           onClick={this.showWidget}
         >
           Upload Photos
-        </button>
+        </Button>
         <br />
         <br />
       </div>
