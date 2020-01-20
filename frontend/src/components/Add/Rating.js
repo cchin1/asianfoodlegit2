@@ -8,8 +8,9 @@ class NewRating extends Component {
   render() {
     return (
       <div>
-        Rate the restaurant out of 5:
-        <input placeholder="1 - 5"></input>
+        Restaurant Rating:
+        <input placeholder="1 - 5" style={{ width: "90%" }}></input>
+        <br />
         <br />
       </div>
     );
