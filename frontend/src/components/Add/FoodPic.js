@@ -4,6 +4,8 @@ import "react-bulma-components/dist/react-bulma-components.min.css";
 import "../../style.css";
 import "../../index.css";
 
+var widget;
+
 class NewFoodPic extends Component {
   checkUploadResult = resultEvent => {
     if (resultEvent.event === "success") {
@@ -17,11 +19,11 @@ class NewFoodPic extends Component {
         .then(this.props.history.push("/profile"));
     }
   };
-  showWidget = widget => {
+  showWidget = () => {
     widget.open();
   };
   render() {
-    const widget = window.cloudinary.createUploadWidget(
+    widget = window.cloudinary.createUploadWidget(
       {
         cloudname: "ohmydearcheesus",
         uploadPreset: "ml_default"
@@ -33,7 +35,7 @@ class NewFoodPic extends Component {
         <button
           id="upload_widget"
           class="cloudinary-button"
-          onClick={widget.open}
+          onClick={this.showWidget}
         >
           Upload Photos
         </button>
