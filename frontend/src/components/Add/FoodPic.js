@@ -5,7 +5,7 @@ import { Button } from "react-bulma-components";
 import "../../style.css";
 import "../../index.css";
 
-var widget;
+var widget = null;
 
 class NewFoodPic extends Component {
   checkUploadResult = resultEvent => {
@@ -21,16 +21,20 @@ class NewFoodPic extends Component {
     }
   };
   showWidget = () => {
-    widget.open();
+    if (widget === null) {
+      widget = window.cloudinary.createUploadWidget(
+        {
+          cloudname: "ohmydearcheesus",
+          uploadPreset: "ml_default"
+        },
+        (error, result) => {}
+      );
+      widget.open();
+    } else {
+      widget.open();
+    }
   };
   render() {
-    widget = window.cloudinary.createUploadWidget(
-      {
-        cloudname: "ohmydearcheesus",
-        uploadPreset: "ml_default"
-      },
-      (error, result) => {}
-    );
     return (
       <div>
         <Button
