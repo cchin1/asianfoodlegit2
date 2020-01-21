@@ -6,6 +6,7 @@ import "../../index.css";
 
 class NewBlurb extends Component {
   render() {
+    const { updateBlurb } = this.props;
     return (
       <div>
         Write about your experience here:
@@ -14,6 +15,7 @@ class NewBlurb extends Component {
           cols="50"
           placeholder="How was your experience at this restaurant?"
           style={{ width: "90%", resize: "vertical" }}
+          onChange={event => updateBlurb(event.target.value)}
         ></textarea>
         <br />
       </div>
