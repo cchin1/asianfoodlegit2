@@ -95,7 +95,7 @@ class App extends Component {
     }
     var newScript = document.createElement("script");
     newScript.src = "https://widget.cloudinary.com/v2.0/global/all.js";
-    document.body.appendChild(newScript);
+    document.head.appendChild(newScript);
   }
 
   componentWillUnmount() {
