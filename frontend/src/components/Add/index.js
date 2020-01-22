@@ -70,7 +70,7 @@ class Review extends Component {
               <br />
               <NewFoodPic updatePictureUrl={this.updatePictureUrl} />
               <Button
-                className="Button is-danger is-outlined"
+                className="Button is-danger"
                 onClick={() => {
                   this.sendReview(this.state);
                   onSubmitReview();
