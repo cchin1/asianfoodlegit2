@@ -8,18 +8,22 @@ import "../../index.css";
 var widget = null;
 
 class NewFoodPic extends Component {
-  checkUploadResult = resultEvent => {
-    if (resultEvent.event === "success") {
-      console.log(this.props.currentUser.id);
-      this.props
-        .postPhoto({
-          user_id: this.props.currentUser.id,
-          caption: "",
-          url: resultEvent.info.secure_url
-        })
-        .then(this.props.history.push("/profile"));
-    }
-  };
+  constructor(props) {
+    super(props);
+  }
+  // checkUploadResult = resultEvent => {
+  //   if (resultEvent.event === "success") {
+  //     console.log(this.props.currentUser.id);
+  //     this.props
+  //       .postPhoto({
+  //         user_id: this.props.currentUser.id,
+  //         caption: "",
+  //         url: resultEvent.info.secure_url
+  //       })
+  //       .then(this.props.history.push("/profile"));
+  //   }
+  // };
+
   showWidget = () => {
     if (widget === null) {
       widget = window.cloudinary.createUploadWidget(
@@ -29,8 +33,9 @@ class NewFoodPic extends Component {
         },
         (error, result) => {
           if (!error && result && result.event === "success") {
+            this.props.updatePictureUrl(result.info.url);
             console.log("Done! Here is the image info: ", result.info);
-            console.log("Image ID: " + result.info.public_id);
+            console.log("Image ID: " + result.info.public_url);
           }
         }
       );
