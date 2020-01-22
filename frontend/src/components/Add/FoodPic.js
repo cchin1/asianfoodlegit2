@@ -27,7 +27,12 @@ class NewFoodPic extends Component {
           cloudName: "ohmydearcheesus",
           uploadPreset: "ml_default"
         },
-        (error, result) => {}
+        (error, result) => {
+          if (!error && result && result.event === "success") {
+            console.log("Done! Here is the image info: ", result.info);
+            console.log("Image ID: " + result.info.public_id);
+          }
+        }
       );
       widget.open();
     } else {
