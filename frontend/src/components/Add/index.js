@@ -34,7 +34,7 @@ class Review extends Component {
     this.setState({ blurb: text });
   };
   sendReview = review => {
-    fetch(`${CONSTANTS.BACKEND_URL}/reviews`, {
+    fetch(`${CONSTANTS.BACKEND_URL}/review`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -70,7 +70,7 @@ class Review extends Component {
               <br />
               <NewFoodPic updatePictureUrl={this.updatePictureUrl} />
               <Button
-                className="Button is-danger"
+                className="Button is-danger is-outlined"
                 onClick={() => {
                   this.sendReview(this.state);
                   onSubmitReview();
