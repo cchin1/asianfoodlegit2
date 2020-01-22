@@ -39,7 +39,7 @@ class NewFoodPic extends Component {
       <div>
         <Button
           id="upload_widget"
-          className="Button is-danger is-outlined"
+          className="cloudinary-button"
           onClick={this.showWidget}
         >
           Upload Photos

@@ -117,21 +117,6 @@ class App extends Component {
         console.error(err);
       });
   };
-
-  // our put method that uses our backend api
-  // to create new query into our data base
-  putDataToDB = message => {
-    let currentIds = this.state.data.map(data => data.id);
-    let idToBeAdded = 0;
-    while (currentIds.includes(idToBeAdded)) {
-      ++idToBeAdded;
-    }
-
-    axios.post("express_backend", {
-      id: idToBeAdded,
-      message: message
-    });
-  };
 }
 
 export default App;
