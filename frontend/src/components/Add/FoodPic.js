@@ -24,7 +24,7 @@ class NewFoodPic extends Component {
     if (widget === null) {
       widget = window.cloudinary.createUploadWidget(
         {
-          cloudname: "ohmydearcheesus",
+          cloudName: "ohmydearcheesus",
           uploadPreset: "ml_default"
         },
         (error, result) => {}
